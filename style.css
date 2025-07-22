@@ -8,49 +8,128 @@
 /* —— body + fonts —— */
 body {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
-  color: #333;
+  color: rgb(0, 0, 0);
   display: flex;
   justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgb(0,0,0) 0%, rgb(255, 255, 255) 100%);
 }
 
 .page-wrapper {
-  width: 90%;
-  max-width: 900px;
+  width: 95%;
+  max-width: 950px;
+  background: rgba(255,255,255,0.97);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+  margin: 32px 0;
+  padding-bottom: 24px;
+  border: 2.5px solid rgb(227,166,53);
 }
 
 /* header */
 .site-header {
   text-align: center;
-  padding-top: 50px;
-  padding-bottom: 10px;
+  padding-top: 48px;
+  padding-bottom: 18px;
+  background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(227,166,53) 100%);
+  border-radius: 24px 24px 0 0;
+  color: rgb(255,255,255);
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08);
 }
 
-.logo {
-  width: 250px;
-  margin-bottom: 15px;
+/* Chatbox and chat messages */
+.chatbox {
+  margin: 40px 0;
+  border: 2.5px solid rgb(255,0,59);
+  border-radius: 16px;
+  padding: 28px 24px 24px 24px;
+  background: linear-gradient(120deg, rgb(255,255,255) 80%, rgb(227,166,53) 100%);
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.07);
 }
-
-.site-title {
+.chatbox h2 {
   font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  color: rgb(0, 0, 0);
+  font-weight: 700;
 }
-
-/* category filter */
-.search-section {
-  margin: 30px 0;
-  display: flex;
+.chat-window {
+  padding: 20px;
+  font-size: 18px;
+  line-height: 1.5;
+  height: 250px;
+  overflow-y: auto;
+  background: rgb(255,255,255);
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1.5px solid rgb(227,166,53);
+  box-shadow: 0 1px 4px 0 rgba(227,166,53,0.08);
+}
+.chat-msg.user {
+  background: linear-gradient(90deg, rgb(255, 255, 255) 10%, rgb(227,166,53) 100%);
+  color: linear-gradient(90deg,rgb(227,166,53), rgb(0, 0, 0));
+  padding: 10px 14px;
+  border-radius: 12px 12px 4px 12px;
+  margin-bottom: 10px;
+  max-width: 80%;
+  margin-left: auto;
+  box-shadow: 0 2px 8px 0 rgba(255,0,59,0.08);
+}
+.chat-msg.assistant {
+  background: rgb(255,255,255);
+  color: rgb(0,0,0);
+  padding: 10px 14px;
+  border-radius: 12px 12px 12px 4px;
+  margin-bottom: 10px;
+  max-width: 80%;
+  margin-right: auto;
+  border: 1.5px solid rgb(227,166,53);
+  box-shadow: 0 2px 8px 0 rgba(227,166,53,0.08);
+  align-items: center;
 }
 
 .search-section select {
   width: 100%;
   padding: 16px;
   font-size: 18px;
-  border: 2px solid #000;
+  border: 2.5px solid rgb(255,0,59);
   border-radius: 8px;
   cursor: pointer;
-  background-color: white;
+  background-color: rgb(255,255,255);
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  transition: border 0.2s;
+}
+.search-section select:focus {
+  outline: none;
+  border-color: rgb(227,166,53);
+}
+.search-section input[type="text"] {
+  padding: 14px 12px;
+  font-size: 17px;
+  border: 2px solid rgb(227,166,53);
+  border-radius: 8px;
+  background: rgb(255,255,255);
+  color: rgb(0,0,0);
   font-weight: 500;
+  transition: border 0.2s;
+}
+.search-section input[type="text"]:focus {
+  border-color: rgb(0, 0, 0);
+}
+.search-section button {
+  background: linear-gradient(90deg, rgb(255, 255, 255), rgb(227,166,53));
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+}
+.search-section button:hover {
+  background: linear-gradient(90deg, rgb(227,166,53), rgb(255,0,59));
 }
 
 .search-section select:focus {
@@ -64,6 +143,7 @@ body {
   border: 2px solid #000;
   border-radius: 8px;
   padding: 26px;
+  background-color: white;
 }
 
 .chatbox h2 {
@@ -86,36 +166,36 @@ body {
   width: 100%;
   text-align: center;
   padding: 40px;
-  color: #666;
+  color: rgb(227,166,53);
   font-size: 18px;
+  font-weight: 600;
 }
-
-/* input row */
 .chat-form {
   display: flex;
   gap: 12px;
   margin-top: 16px;
 }
-
 .chat-form input {
   flex: 1;
   padding: 12px;
   font-size: 18px;
-  border: none;
-  border-bottom: 2px solid #ccc;
-  background: transparent;
+  border: 2px solid rgb(255,0,59);
+  border-radius: 8px;
+  background: rgb(255,255,255);
+  color: rgb(0,0,0);
+  font-weight: 500;
+  transition: border 0.2s;
 }
-
 .chat-form input:focus {
   outline: none;
-  border-bottom-color: #000;
+  border-color: rgb(227,166,53);
 }
-
 .chat-form button {
   font-size: 18px;
-  background: #000;
+  background: linear-gradient(90deg, rgb(255,0,59), rgb(227,166,53));
   color: #fff;
   border: none;
+  border-radius: 8px;
   padding: 12px;
   width: 48px;
   height: 48px;
@@ -125,8 +205,12 @@ body {
   cursor: pointer;
   transition: background 0.3s;
 }
-
 .chat-form button:hover {
+  background: linear-gradient(90deg, rgb(227,166,53), rgb(255,0,59));
+}
+.chat-form button:focus {
+  outline: 2px solid rgb(255,0,59);
+  outline-offset: 2px;
   background: #666666;
 }
 
@@ -186,6 +270,15 @@ body {
   display: flex;
   gap: 15px;
   min-height: 160px;
+  background-color: white;
+  cursor: pointer;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+/* Highlight selected product card */
+.product-card.selected {
+  border: 2.5px solid rgb(255, 0, 59);
+  box-shadow: 0 0 0 2px rgba(255, 0, 59, 0.15);
 }
 
 .product-card img {
@@ -193,6 +286,9 @@ body {
   height: 110px;
   object-fit: contain;
   flex-shrink: 0;
+  border: 4px solid #eee;
+  border-radius: 8px;
+  background-color: #000;
 }
 
 .product-card .product-info {
@@ -214,11 +310,74 @@ body {
 }
 
 /* selected products */
+
 .selected-products {
   margin: 40px 0;
   padding: 20px;
   border: 2px solid #000;
   border-radius: 8px;
+  background-color: white;
+}
+
+/* Selected product item */
+.selected-product {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fafafa;
+  border: 1.5px solid #eee;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 15px;
+}
+.selected-product button.remove-selected {
+  background: none;
+  border: none;
+  color: rgb(255, 0, 59);
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 6px;
+  line-height: 1;
+}
+.selected-product button.remove-selected:hover {
+  color: #000;
+}
+.desc-btn {
+  margin-top: 8px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.desc-btn:hover {
+  background: rgb(255, 0, 59);
+}
+.product-desc {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #333;
+  background: #f3f3f3;
+  border-radius: 4px;
+  padding: 8px 10px;
+}
+/* RTL support */
+[dir="rtl"] {
+  direction: rtl;
+}
+[dir="rtl"] .products-grid,
+[dir="rtl"] .selected-products,
+[dir="rtl"] .chatbox {
+  text-align: right;
+}
+[dir="rtl"] .product-card {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .selected-product {
+  flex-direction: row-reverse;
 }
 
 .selected-products h2 {
